@@ -12,8 +12,8 @@ jobs:
       matrix:
         # platform: [macos-latest, ubuntu-latest, windows-latest]
         platform: [windows-latest]
-    # runs-on: ${{ matrix.platform }}
-    runs-on: self-hosted
+        target: [x86_64-pc-windows-msvc, i686-pc-windows-msvc]
+    runs-on: ${{ matrix.platform }}
     env:
       OPENCV_VERSION: 4.6.0
     steps:
@@ -29,6 +29,10 @@ jobs:
         uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
+          profile: minimal
+          override: true
+          default: true
+          target: ${{ matrix.target }}
 
       - name: Install dependencies (ubuntu only)
         if: matrix.platform == 'ubuntu-latest'
