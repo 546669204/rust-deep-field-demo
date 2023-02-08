@@ -10,7 +10,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        platform: [macos-latest, ubuntu-latest, windows-latest]
+        # platform: [macos-latest, ubuntu-latest, windows-latest]
+        platform: [windows-latest]
     runs-on: ${{ matrix.platform }}
     steps:
       - name: Checkout repository
@@ -38,6 +39,11 @@ jobs:
         if: matrix.platform == 'windows-latest'
         run: |
           choco install -y llvm opencv
+          export PATH="/C/tools/opencv/build/x64/vc15/bin:$PATH"
+          export OPENCV_LINK_PATHS="/C/tools/opencv/build/x64/vc15/lib"
+          export OPENCV_LINK_LIBS="opencv_world460"
+          export OPENCV_INCLUDE_PATHS="/C/tools/opencv/build/include"
+
       - name: Install dependencies (macos only)
         if: matrix.platform == 'macos-latest'
         run: |
