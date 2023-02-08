@@ -12,7 +12,8 @@ jobs:
       matrix:
         # platform: [macos-latest, ubuntu-latest, windows-latest]
         platform: [windows-latest]
-    runs-on: ${{ matrix.platform }}
+    # runs-on: ${{ matrix.platform }}
+    runs-on: self-hosted
     env:
       OPENCV_VERSION: 4.6.0
     steps:
@@ -37,6 +38,7 @@ jobs:
           sudo apt-get install -y clang
           sudo ln -fs libclang.so.1 /usr/lib/llvm-10/lib/libclang.so
           sudo apt-get -y install "libopencv-dev=4.2.0*"
+          
       - name: Install dependencies (windows only)
         if: matrix.platform == 'windows-latest'
         env:
