@@ -33,6 +33,16 @@ jobs:
           override: true
           default: true
           # target: ${{ matrix.target }}
+          
+      - uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cargo/bin/
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+            target/
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
 
       - name: Install dependencies (ubuntu only)
         if: matrix.platform == 'ubuntu-latest'
