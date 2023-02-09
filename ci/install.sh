@@ -12,5 +12,6 @@ export OPENCV_LINK_LIBS="opencv_world${OPENCV_VERSION//./}"
 export OPENCV_INCLUDE_PATHS="/C/tools/opencv/build/include"
 
 
+cargo install tauri-cli
 
-cargo build -r
+cargo tauri build
