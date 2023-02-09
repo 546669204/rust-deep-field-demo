@@ -12,6 +12,11 @@ export OPENCV_LINK_LIBS="opencv_world${OPENCV_VERSION//./}"
 export OPENCV_INCLUDE_PATHS="/C/tools/opencv/build/include"
 
 
-cargo install tauri-cli
+if which cargo-tauri > /dev/null; then
+    echo "Command exists"
+else
+    cargo install tauri-cli
+fi
+
 
 cargo tauri build
