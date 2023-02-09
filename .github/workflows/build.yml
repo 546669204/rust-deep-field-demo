@@ -67,6 +67,7 @@ jobs:
           artifacts: "target/release/bundle/**/*"
           tag: "v1.0.0"
           token: ${{ secrets.GITHUB_TOKEN }}
+          allowUpdates: true
           # bodyFile: "body.md"
       # - name: Install app dependencies and build web
       #   run: yarn && yarn build
