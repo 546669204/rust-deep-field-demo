@@ -33,7 +33,7 @@ jobs:
           override: true
           default: true
           # target: ${{ matrix.target }}
-          
+
       - uses: actions/cache@v3
         with:
           path: |
@@ -77,6 +77,10 @@ jobs:
           rm -f /usr/local/bin/python3-config
 
           brew -v install opencv"4.2.0"
+      - uses: actions/upload-artifact@v3
+        with:
+          name: my-artifact
+          path: target/release/bundle/**/*
       # - name: Install app dependencies and build web
       #   run: yarn && yarn build
 
