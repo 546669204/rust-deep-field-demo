@@ -5,8 +5,8 @@ set -vex
 
 if [[ "$OS_FAMILY" == "Linux" ]]; then
 	sudo apt-get install -y libopencv-dev clang libclang-dev
-    sudo ln -fs libclang.so.1 /usr/lib/llvm-10/lib/libclang.so
-    sudo apt-get -y install "libopencv-dev=4.2.0*"
+    # sudo ln -fs libclang.so.1 /usr/lib/llvm-10/lib/libclang.so
+    # sudo apt-get -y install "libopencv-dev=4.2.0*"
 elif [[ "$OS_FAMILY" == "macOS" ]]; then
     brew -v update
     # fixes the install on 2023-01-14
