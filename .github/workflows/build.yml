@@ -16,7 +16,7 @@ jobs:
       fail-fast: false
       matrix:
         # platform: [macos-latest, ubuntu-latest, windows-latest]
-        platform: [ ubuntu-latest]
+        platform: [ ubuntu-latest, windows-latest]
         # target: [x86_64-pc-windows-msvc]
     runs-on: ${{ matrix.platform }}
     permissions:
@@ -71,7 +71,7 @@ jobs:
       #     path: target/release/bundle/**/*
       - uses: ncipollo/release-action@v1
         with:
-          artifacts: "target/release/**/*.zip"
+          artifacts: "target/release/*.zip"
           tag: "v1.0.0"
           token: ${{ secrets.GITHUB_TOKEN }}
           allowUpdates: true
