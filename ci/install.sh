@@ -49,4 +49,4 @@ rm -rf target/release/bundle
 cargo build -r
 
 
-zip -r "$OS_FAMILY.zip" target/release/* --exclude *target/release/build/* --exclude *target/release/bundle/* --exclude *target/release/deps/* --exclude *target/release/examples/* --exclude *target/release/incremental/* 
+# zip -r "$OS_FAMILY.zip" target/release/* --exclude *target/release/build/* --exclude *target/release/bundle/* --exclude *target/release/deps/* --exclude *target/release/examples/* --exclude *target/release/incremental/* 
