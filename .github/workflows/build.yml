@@ -63,7 +63,8 @@ jobs:
         shell: bash
       - name: Setup tmate session
         uses: mxschmitt/action-tmate@v3
-        if: ${{ github.event_name == 'workflow_dispatch' && inputs.debug_enabled && failure() }}
+        # if: ${{ github.event_name == 'workflow_dispatch' && inputs.debug_enabled && failure() }}
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.debug_enabled }}
       # - uses: actions/upload-artifact@v3
       #   with:
       #     name: my-artifact
