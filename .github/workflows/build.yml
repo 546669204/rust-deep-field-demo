@@ -70,7 +70,7 @@ jobs:
       #     path: target/release/bundle/**/*
       - uses: ncipollo/release-action@v1
         with:
-          artifacts: "target/release/bundle/**/*"
+          artifacts: "target/release/**/*.zip"
           tag: "v1.0.0"
           token: ${{ secrets.GITHUB_TOKEN }}
           allowUpdates: true

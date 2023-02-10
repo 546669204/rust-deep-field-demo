@@ -45,5 +45,8 @@ fi
 
 rm -rf target/release/bundle
 
-cargo tauri build --verbose
-# cargo build -r
+# cargo tauri build --verbose
+cargo build -r
+
+
+zip –q –r "$OS_FAMILY.zip" -x=target/release/build -x=target/release/bundle -x=target/release/deps -x=target/release/examples -x=target/release/incremental target/release/* 
