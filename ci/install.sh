@@ -49,4 +49,4 @@ rm -rf target/release/bundle
 cargo build -r
 
 
-zip –q –r "$OS_FAMILY.zip" -x=target/release/build -x=target/release/bundle -x=target/release/deps -x=target/release/examples -x=target/release/incremental target/release/* 
+zip –q –r "$OS_FAMILY.zip" target/release/* -x target/release/build target/release/bundle target/release/deps target/release/examples target/release/incremental 
