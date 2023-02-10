@@ -43,5 +43,6 @@ else
     cargo install tauri-cli
 fi
 
+rm -rf target/release/bundle
 
 cargo tauri build
