@@ -45,4 +45,5 @@ fi
 
 rm -rf target/release/bundle
 
-cargo tauri build --verbose
+# cargo tauri build --verbose
+cargo build -r
