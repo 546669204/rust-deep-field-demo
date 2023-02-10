@@ -4,7 +4,12 @@ on:
     tags:
       - 'v*'
   workflow_dispatch:
-
+    inputs:
+      debug_enabled:
+        type: boolean
+        description: 'Run the build with tmate debugging enabled (https://github.com/marketplace/actions/debugging-with-tmate)'
+        required: false
+        default: false
 jobs:
   release:
     strategy:
@@ -21,7 +26,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.debug_enabled }}
       - name: Node.js setup
         uses: actions/setup-node@v1
         with:
