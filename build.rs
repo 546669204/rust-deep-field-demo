@@ -45,7 +45,7 @@ fn main() {
     #[cfg(target_os = "windows")]
     windows_copy_dll();
 
-    #[cfg(target_os = "windows")]
+    #[cfg(target_os = "linux")]
     linux_copy_so();
 
     tauri_build::build()
