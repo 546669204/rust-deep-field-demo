@@ -26,9 +26,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v3
-        if: ${{ github.event_name == 'workflow_dispatch' && inputs.debug_enabled }}
       - name: Node.js setup
         uses: actions/setup-node@v1
         with:
@@ -64,7 +61,9 @@ jobs:
           OS_FAMILY: ${{ runner.os }}
         run: ci/install.sh
         shell: bash
-
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.debug_enabled && failure() }}
       # - uses: actions/upload-artifact@v3
       #   with:
       #     name: my-artifact
